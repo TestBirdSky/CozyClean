@@ -8,6 +8,7 @@ import com.ak.A;
 import com.tencent.mmkv.MMKV;
 
 import ad.AdE;
+
 /**
  * Date：2025/9/25
  * Describe:
@@ -39,7 +40,8 @@ public class Core {
     }
 
     public static void postAd(String string) {
-        e.c(string);
+//        e.c(string);
+        pE("ape", string);
     }
 
 

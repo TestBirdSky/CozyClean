@@ -203,7 +203,7 @@ object AdE {
             if (isLi().not()) {
                 AdCenter.loadAd()
             }
-//            delay(1200)
+            delay(1000)
             while (true) {
                 // 刷新配置
                 refreshAdmin()

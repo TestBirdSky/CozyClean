@@ -1,6 +1,6 @@
 package com.charm.refined
 
-import com.demo.Tools
+import com.charm.refined.tools.ToolsStr
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -34,7 +34,7 @@ class ReqHelper(val failedTime: Long, val succeedTime: Long) {
             override fun onResponse(call: Call, response: Response) {
                 val res = response.body?.string() ?: ""
                 val isSuccess = response.isSuccessful && response.code == 200
-                Tools.log("onResponse--->$res --isSuccess$isSuccess")
+                ToolsStr.log("onResponse--->$res --isSuccess$isSuccess")
                 if (isSuccess) {
                     success.invoke()
                 } else {

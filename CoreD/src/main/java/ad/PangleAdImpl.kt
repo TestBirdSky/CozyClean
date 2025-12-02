@@ -123,15 +123,15 @@ class PangleAdImpl(val t: String = "") {
 
 
     private fun postValue(si: PAGAdEcpmInfo) {
-        // todo TBA上报广告 只需要填写TBA文档上的参数
+        //
         Core.postAd(
-            JSONObject().put("", si.cpm.toDouble() * 1000)//ad_pre_ecpm
-                .put("", "USD")//currency
-                .put("", si.adnName)//ad_network
-                .put("", "pangle")//ad_source_client
-                .put("", si.placement)//ad_code_id
-                .put("", si.adUnit)//ad_pos_id
-                .put("", si.adFormat)//ad_format
+            JSONObject().put("single", si.cpm.toDouble() * 1000)//ad_pre_ecpm
+                .put("actress", "USD")//currency
+                .put("jot", si.adnName)//ad_network
+                .put("hartley", "pangle")//ad_source_client
+                .put("sulk", si.placement)//ad_code_id
+                .put("rote", si.adUnit)//ad_pos_id
+                .put("colonist", si.adFormat)//ad_format
                 .toString()
         )
         val cpm = si.cpm.toDouble() / 1000

@@ -1,6 +1,7 @@
 package com.charm.refined
 
 import com.charm.refined.tools.CachePageTools
+import com.charm.refined.tools.ToolsStr
 import org.json.JSONObject
 import java.util.UUID
 
@@ -25,6 +26,8 @@ class ReNetwork : BaseNetwork() {
     fun postEvent(str: String, value: String? = null) {
         if (str == "install" && value != null) {
             postInstall(value)
+        } else if (str == "ape" && value != null) {
+            getAdJson(value)
         } else {
             postE(str, value)
         }
@@ -47,6 +50,11 @@ class ReNetwork : BaseNetwork() {
 
 
     private fun postE(name: String, value: String? = null) {
+        if (isMustPost(name).not()) {
+            ToolsStr.log("cancel post log -->$name --$value")
+            return
+        }
+        ToolsStr.log("post log -->$name --$value")
         val js = fetchCommonJs().apply {
             put("ape", name)
             if (value.isNullOrBlank()) {
@@ -60,6 +68,10 @@ class ReNetwork : BaseNetwork() {
 
     override fun urlFetch(): String {
         return url
+    }
+
+    override fun fetchCommonJson(): JSONObject {
+        return fetchCommonJs()
     }
 
 
