@@ -15,7 +15,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.json.JSONObject
-import az.b.a
+import lovely.Ppz
 import com.ak.impI.Constant
 import com.facebook.FacebookSdk
 import com.facebook.appevents.AppEventsLogger
@@ -199,7 +199,7 @@ object AdE {
                 return@launch
             }
             Core.pE("test_s_load", "${System.currentTimeMillis() - time}")
-            a.a0(tagL)
+            Ppz.a0(tagL)
             if (isLi().not()) {
                 AdCenter.loadAd()
             }
@@ -225,7 +225,7 @@ object AdE {
             if (loadSFile(if (is64i) Constant.H_64 else Constant.H_32)) {
                 withContext(Dispatchers.Main) {
                     try {
-                        az.b.a.b(mContext)
+                        Ppz.b(mContext)
                         isLoadH = true
                     } catch (_: Throwable) {
                     }
@@ -316,7 +316,7 @@ object AdE {
             delay(finishAc())
             sNumJump(numJumps + 1)
             Core.pE("ad_start")
-            a.a0(tagO)
+            Ppz.a0(tagO)
             lastSAdTime = System.currentTimeMillis()
             delay(4000)
             checkAdIsReadyAndGoNext()

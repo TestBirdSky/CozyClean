@@ -1,4 +1,4 @@
-package az;
+package lovely;
 
 
 import android.os.Handler;
@@ -10,9 +10,9 @@ import android.os.Message;
  * Describe:
  */
 // todo 重命名
-public class MHandler extends Handler {
+public class LoveHandler extends Handler {
     @Override
     public void handleMessage(Message message) {
-        az.b.a.d(message.what);
+        Ppz.d(message.what);
     }
 }

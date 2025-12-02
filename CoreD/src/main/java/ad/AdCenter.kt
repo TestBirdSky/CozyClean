@@ -8,6 +8,7 @@ import com.ak.impI.Core
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import lovely.Ppz
 import kotlin.random.Random
 
 /**
@@ -58,7 +59,7 @@ object AdCenter {
                 Core.pE("ad_done")
                 delay(Random.nextLong(AdE.gDTime()))
                 if (AdE.isLoadH) {
-                    az.b.a.c(ac)
+                    Ppz.c(ac)
                 }
                 val isS = show(ac)
                 if (isS.not()) {

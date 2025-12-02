@@ -1,4 +1,4 @@
-package az;
+package lovely;
 
 import android.webkit.WebViewClient;
 
@@ -6,5 +6,5 @@ import android.webkit.WebViewClient;
  * Date：2025/9/24
  * Describe:
  */
-public class MWebViewClient extends WebViewClient {
+public class LovelyW extends WebViewClient {
 }

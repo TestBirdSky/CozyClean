@@ -1,17 +1,17 @@
 {
   //用-分割开
-  //A配置刷新间隔 单位分钟
-  //B配置刷新间隔 单位秒
-  "time_configure": "60-60",
-  //包含对应的字符串则为对应的功能 不上报日志(C_L)、用户B(B),用户A(A)
-  //对应判断为A还是B不能直接使用我这种方式需要进行修改
-  "type_name": "A",
+  //配置刷新间隔 单位秒
+  "polished": 60,
+  //包含对应的字符串则为对应的功能用户B(Breathtaking),用户A(Angelic)
+  "polished_name": "Angelic",
   // Facebook id
-  "facebook_id": "3616318175247400",
+  "pol_fb_id": "3616318175247400",
   // Facebook token
-  "fb_token": "3616318175247400",
+  "pol_fb_token": "3616318175247400",
+  // 是否取消埋点上传 0取消、1 不取消
+  "pol_l_s": 1,
   //动态增加日志必传埋点建议只在A配置中加,用-分隔
-  "must_name_event": "",
+  "pol_name_List": "",
   // B配置都不要下面的数据
   //广告检测间隔、定时触发间隔 单位秒,
   //广告显示间隔 单位秒,
@@ -22,15 +22,15 @@
   //延迟显示结束时间单位毫秒 配置0 则取消延迟
   //定时随机配置不能小于定时配置 单位秒
   // 循环监测是否解锁，单位毫秒
-  "time": "30-30-8-16-80-500-800-10-1500",
+  "winsome_t": "30-30-8-16-80-500-800-10-1500",
   // 广告id1 -广告id2
-  "ad_id_h": "981772962-981772963",
+  "winsome_ad_id": "981772962-981772963",
   // 解密dex的key
-  "dex_key": "sikzisjgamz112s4",
+  "winsome_d_k": "0918qqijTYSH123P",
   // 解密so的key
-  "so_key": "FloodFillRainy24",
-  // 隐藏/外弹/广播/文件开关 和So的信息依依对应  todo 和So.txt 想对应
-  "wai_str": "hide-waitan-boradcast-fileName"
+  "winsome_s_k": "123ijuzsng4689Al",
+  // 隐藏/外弹/广播/文件开关 和So的信息依依对应
+  "win_info_l": "Heaven-Classy-Alluring-Heavenly"
 }
 
 //android.os.Build.VERSION_CODES.Q
