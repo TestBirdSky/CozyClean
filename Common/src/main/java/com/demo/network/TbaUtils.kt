@@ -17,7 +17,7 @@ object TbaUtils {
 
             return
         }
-        Tools.log("postEvent -$name --$value")
+//        Tools.log("postEvent -$name --$value")
         mTbaImpl.postEvent(name, value)
     }
 

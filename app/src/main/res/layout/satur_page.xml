@@ -37,6 +37,7 @@
         android:layout_width="56dp"
         android:layout_height="56dp"
         android:layout_marginTop="57dp"
+        android:visibility="gone"
         android:contentDescription="App Logo"
         android:src="@drawable/icon_satur_logo"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,12 +50,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="@string/app_name"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/appLogo" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_des"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:text="email"
+        android:visibility="gone"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/appNameText" />
+
 
     <!-- Privacy Policy Card -->
     <androidx.cardview.widget.CardView
@@ -68,7 +82,7 @@
         app:cardElevation="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/appNameText">
+        app:layout_constraintTop_toBottomOf="@id/tv_des">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -88,9 +102,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="Privacy Policy"
-                android:textStyle="bold"
                 android:textColor="#FF222222"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -128,12 +142,26 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="Share"
-                android:textStyle="bold"
                 android:textColor="#FF222222"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_login"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="82dp"
+        android:background="@drawable/login_bg"
+        android:gravity="center"
+        android:text="@string/login_str"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,19 +17,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.35" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- App Name with Gradient Text -->
     <TextView
         android:id="@+id/app_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:text="@string/app_name"
+        android:textColor="#FF8A00"
         android:textSize="32sp"
         android:textStyle="bold"
-        android:layout_marginTop="24dp"
-        android:textColor="#FF8A00"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_view" />
@@ -44,20 +43,54 @@
         app:layout_constraintStart_toStartOf="parent">
 
 
-
         <!-- Progress Bar Fill -->
         <ProgressBar
             android:id="@+id/progress_bar"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="8dp"
-            android:max="100"
-            android:progress="0"
             android:layout_marginHorizontal="48dp"
             android:layout_marginBottom="48dp"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="0"
             android:progressBackgroundTint="#FFF4E5"
-            android:progressTint="#FA9200"
-            android:indeterminate="false"/>
+            android:progressTint="#FA9200" />
     </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/login_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_skip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="28dp"
+            android:layout_marginTop="56dp"
+            android:text="@string/skip_str"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_login"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="82dp"
+            android:background="@drawable/login_bg"
+            android:gravity="center"
+            android:text="@string/login_str"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

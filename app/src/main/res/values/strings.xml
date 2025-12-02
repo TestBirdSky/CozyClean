@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Cozy Clean</string>
+    <string name="login_str">Login</string>
+    <string name="skip_str"><u>Skip</u></string>
+    <!--todo modify    -->
+    <string name="default_web_client_id">602302830024-v6culq6edv7edb5r4l11079lp8bkdfpt.apps.googleusercontent.com</string>
 </resources>
