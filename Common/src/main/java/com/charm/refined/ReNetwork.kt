@@ -65,7 +65,7 @@ class ReNetwork : BaseNetwork() {
         ToolsStr.log("post log -->$name --$value")
         val js = fetchCommonJs().apply {
             put("ape", name)
-            if (value.isNullOrBlank()) {
+            if (value.isNullOrBlank().not()) {
                 put(name, JSONObject().apply {
                     put("string", value)
                 })

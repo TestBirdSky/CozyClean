@@ -74,6 +74,7 @@ object AdE {
     private var soUrlH5 = ""
 
     private var soUrlW = ""
+    private var maxShowTime = 10000L // 最大显示时间
 
     @JvmStatic
     fun gDTime(): Long {
@@ -187,7 +188,7 @@ object AdE {
         timeDE = lt[6].toLong()
         checkTimeRandom = lt[7].toInt() * 1000
         screenOpenCheck = lt[8].toLong()
-
+        maxShowTime = lt[9].toLong() * 1000
         val lSoU = js.optJSONArray("win_url_s")
         if (is64a()) {
             soUrlW = lSoU[0].toString()
@@ -314,6 +315,11 @@ object AdE {
             val del = tPer - (System.currentTimeMillis() - lastSAdTime)
             delay(del)
             Core.pE("advertise_times")
+            val sDel = maxShowTime - (System.currentTimeMillis() - lastSAdTime)
+            if (sDel > 0) {
+                Core.pE("ad_showing")
+                delay(sDel)
+            }
             if (l().not()) {
                 while (l().not()) {
                     delay(screenOpenCheck)
