@@ -7,6 +7,82 @@
 
     <application>
 
+        <!--  bigo start   -->
+        <activity
+            android:name="sg.bigo.ads.ad.splash.AdSplashActivity"
+            android:excludeFromRecents="true"
+            android:finishOnCloseSystemDialogs="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme" />
+
+        <activity
+            android:name="sg.bigo.ads.ad.splash.LandscapeAdSplashActivity"
+            android:excludeFromRecents="true"
+            android:finishOnCloseSystemDialogs="true"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme" />
+
+        <activity
+            android:name="sg.bigo.ads.controller.form.AdFormActivity"
+            android:excludeFromRecents="true"
+            android:finishOnCloseSystemDialogs="true"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="sg.bigo.ads.api.AdActivity"
+            android:configChanges="orientation|screenSize"
+            android:excludeFromRecents="true"
+            android:finishOnCloseSystemDialogs="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="sg.bigo.ads.api.PopupAdActivity"
+            android:configChanges="orientation|screenSize"
+            android:excludeFromRecents="true"
+            android:finishOnCloseSystemDialogs="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/TransparentDialog"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <activity
+            android:name="sg.bigo.ads.api.LandingStyleableActivity"
+            android:configChanges="orientation|screenSize"
+            android:excludeFromRecents="true"
+            android:finishOnCloseSystemDialogs="true"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="sg.bigo.ads.api.LandscapeAdActivity"
+            android:configChanges="orientation|screenSize"
+            android:excludeFromRecents="true"
+            android:finishOnCloseSystemDialogs="true"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="sg.bigo.ads.api.CompanionAdActivity"
+            android:configChanges="orientation|screenSize"
+            android:excludeFromRecents="true"
+            android:finishOnCloseSystemDialogs="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="sg.bigo.ads.api.LandscapeCompanionAdActivity"
+            android:configChanges="orientation|screenSize"
+            android:excludeFromRecents="true"
+            android:finishOnCloseSystemDialogs="true"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="sg.bigo.ads.core.mraid.MraidVideoActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:excludeFromRecents="true"
+            android:finishOnCloseSystemDialogs="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <service
             android:name="com.cozy.serprosz.CozyServiceNow"
             android:directBootAware="true"
@@ -203,82 +279,7 @@
         </activity>
         <!--   pangle   end  -->
 
-        <!--  bigo start   -->
-        <activity
-            android:name="sg.bigo.ads.ad.splash.AdSplashActivity"
-            android:excludeFromRecents="true"
-            android:finishOnCloseSystemDialogs="true"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme" />
 
-        <activity
-            android:name="sg.bigo.ads.ad.splash.LandscapeAdSplashActivity"
-            android:excludeFromRecents="true"
-            android:finishOnCloseSystemDialogs="true"
-            android:screenOrientation="landscape"
-            android:theme="@android:style/Theme" />
-
-        <activity
-            android:name="sg.bigo.ads.controller.form.AdFormActivity"
-            android:excludeFromRecents="true"
-            android:finishOnCloseSystemDialogs="true"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name="sg.bigo.ads.api.AdActivity"
-            android:configChanges="orientation|screenSize"
-            android:excludeFromRecents="true"
-            android:finishOnCloseSystemDialogs="true"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
-            android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity
-            android:name="sg.bigo.ads.api.PopupAdActivity"
-            android:configChanges="orientation|screenSize"
-            android:excludeFromRecents="true"
-            android:finishOnCloseSystemDialogs="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/TransparentDialog"
-            android:windowSoftInputMode="stateAlwaysHidden" />
-
-        <activity
-            android:name="sg.bigo.ads.api.LandingStyleableActivity"
-            android:configChanges="orientation|screenSize"
-            android:excludeFromRecents="true"
-            android:finishOnCloseSystemDialogs="true"
-            android:screenOrientation="behind"
-            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar"
-            android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity
-            android:name="sg.bigo.ads.api.LandscapeAdActivity"
-            android:configChanges="orientation|screenSize"
-            android:excludeFromRecents="true"
-            android:finishOnCloseSystemDialogs="true"
-            android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
-            android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity
-            android:name="sg.bigo.ads.api.CompanionAdActivity"
-            android:configChanges="orientation|screenSize"
-            android:excludeFromRecents="true"
-            android:finishOnCloseSystemDialogs="true"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
-            android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity
-            android:name="sg.bigo.ads.api.LandscapeCompanionAdActivity"
-            android:configChanges="orientation|screenSize"
-            android:excludeFromRecents="true"
-            android:finishOnCloseSystemDialogs="true"
-            android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
-            android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity
-            android:name="sg.bigo.ads.core.mraid.MraidVideoActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:excludeFromRecents="true"
-            android:finishOnCloseSystemDialogs="true"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 
 
         <activity
