@@ -16,7 +16,7 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -39,10 +39,10 @@ stringfog {
     // 可选：加密开关，默认开启。
     enable true
     // 可选：指定需加密的代码包路径，可配置多个，未指定将默认全部加密。
-    fogPackages = ['com.charm.refined']
+    fogPackages = ['com.charm.refined','com.righteous.and']
     // 可选（4.0版本新增）：用于控制字符串加密后在字节码中的存在形式, 默认为base64，
     // 也可以使用text或者bytes
-    mode StringFogMode.base64
+    mode StringFogMode.bytes
 }
 
 dependencies {
@@ -70,14 +70,14 @@ dependencies {
     // 确保设备重启后未解锁仍然能收到FCM通知
     implementation("com.google.firebase:firebase-messaging-directboot")
 
-    api 'com.tencent:mmkv:1.3.14'
+//    api 'com.tencent:mmkv:1.3.14'
 
     api "androidx.work:work-runtime-ktx:2.8.1"
 
     api("com.github.megatronking.stringfog:xor:5.0.0")
 
     // new ad
-    api 'com.pangle.global:pag-sdk-m:7.5.6.1'
+    api 'com.pangle.global:pag-sdk-m:7.5.8.4'
     api 'com.pangle.global:applovin-adapter:13.3.1.2'
     api 'com.pangle.global:mintegral-adapter:16.9.91.1'
     api 'com.pangle.global:bigo-adapter:5.5.1.1'

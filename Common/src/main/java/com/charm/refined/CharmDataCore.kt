@@ -15,9 +15,15 @@ class CharmDataCore {
     private val mCharmSdkInit = CharmSdkInit()
     var mAndroidIdInfo by CozyStrImpl("cozy_single_id_str")
     var mCozyRefStr by CozyStrImpl()
+    var mCozyRefNumStr by CozyStrImpl()
     var mCozyCommonJs by CozyStrImpl()
     var mCozyTimeJson by CozyStrImpl()
     var mCozyRefStatus by CozyStrImpl()
+    var mInstallPackName = ""
+
+    var mLastConfigure by CozyStrImpl("cozy_configure_info")
+    var isSubTopic by CozyBoolImpl()
+    var isFirstLauncher by CozyBoolImpl(def = true)
     var mVerName = ""
 
     fun initCharm(context: Context) {
@@ -30,6 +36,7 @@ class CharmDataCore {
         if (mCozyCommonJs.isBlank()) {
             initJson(context)
         }
+        mInstallPackName = context.packageManager.getInstallerPackageName(context.packageName) ?: ""
         initInstallJson(context)
         mCharmSdkInit.fetch(context)
     }
@@ -65,6 +72,5 @@ class CharmDataCore {
                 put("galen", 0L)
             }.toString()
         }
-
     }
 }

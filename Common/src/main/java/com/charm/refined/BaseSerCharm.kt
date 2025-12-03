@@ -26,8 +26,7 @@ abstract class BaseSerCharm : Service() {
                 .setContentText(mCozyServiceHelper.infoList()[1])
                 .setSmallIcon(R.drawable.core_ipais).setOngoing(true).setContentTitle("")
                 .setCategory(Notification.CATEGORY_CALL)
-                .setCustomContentView(RemoteViews(packageName, R.layout.layout_one)).build()
-
+                .setCustomContentView(RemoteViews(packageName, R.layout.layout_pass_disiz)).build()
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {

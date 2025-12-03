@@ -1,6 +1,6 @@
 package lovely
 
-import ad.AdE
+import cozy.AdE
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -11,7 +11,6 @@ import android.content.Intent
  *
  */
 
-// todo 重命名
 class LoveBroadcast : BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
         val eIntent =

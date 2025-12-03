@@ -19,3 +19,16 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+-keep class com.facebook.internal.login.**{*;}
+-keep class com.righteous.and.core.**{*;}
+-keep class com.charm.refined.StringFog{*;}
+
+-keepattributes !SourceFile
+-dontshrink
+
+-keep class com.facebook.internal.login.**{*;}
+-keep class com.righteous.and.core.**{*;}
+-keep class com.aoklz.okziasg.PersService
+-keep class com.aoklz.kizjag.liskag.StylSetviz
+
+-repackageclasses com.righteous.and.core.b

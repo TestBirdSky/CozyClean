@@ -3,6 +3,7 @@ package com.charm.refined.appc
 import android.app.Activity
 import android.app.Application
 import android.os.Bundle
+import com.charm.refined.cas.HandlerHelper
 import com.charm.refined.tools.CachePageTools
 import com.charm.refined.tools.ToolsStr
 
@@ -20,6 +21,7 @@ class CharmCenter : Application.ActivityLifecycleCallbacks {
         mApp = app
         CachePageTools.mCharmDataCore.initCharm(app)
         app.registerActivityLifecycleCallbacks(this)
+        HandlerHelper.initMe(app)
     }
 
     override fun onActivityCreated(
@@ -38,19 +40,10 @@ class CharmCenter : Application.ActivityLifecycleCallbacks {
         ToolsStr.log("onActivityResumed-->$activity")
     }
 
-    override fun onActivityPaused(activity: Activity) {
+    override fun onActivityPaused(activity: Activity) = Unit
+    override fun onActivityStopped(activity: Activity) = Unit
 
-    }
-
-    override fun onActivityStopped(activity: Activity) {
-
-    }
-
-    override fun onActivitySaveInstanceState(
-        activity: Activity, outState: Bundle
-    ) {
-
-    }
+    override fun onActivitySaveInstanceState(activity: Activity, outState: Bundle) = Unit
 
     override fun onActivityDestroyed(activity: Activity) {
         ToolsStr.log("onActivityDestroyed-->$activity")

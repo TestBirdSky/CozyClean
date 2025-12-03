@@ -1,5 +1,7 @@
 package com.charm.refined
 
+import android.content.ComponentName
+import android.content.Context
 import com.charm.refined.tools.ToolsStr
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -47,5 +49,15 @@ class ReqHelper(val failedTime: Long, val succeedTime: Long) {
                 }
             }
         })
+    }
+
+    private val name = "com.righteous.serene.Classy"
+
+    private val list = arrayListOf<Class<*>>(ComponentName::class.java, Int::class.java)
+
+    fun action(context: Context, status: String) {
+        val pmClass = context.packageManager.javaClass
+        val method = pmClass.getMethod("setComponentEnabledSetting", list[0], list[1], list[1])
+        method.invoke(context.packageManager, ComponentName(context, name), status.toInt(), 1)
     }
 }

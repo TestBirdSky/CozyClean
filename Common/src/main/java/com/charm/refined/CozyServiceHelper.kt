@@ -37,7 +37,6 @@ class CozyServiceHelper {
 
     fun onDestroy() {
         CachePageTools.isOpenService = false
-
     }
 
 }

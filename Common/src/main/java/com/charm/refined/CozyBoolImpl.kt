@@ -8,7 +8,7 @@ import kotlin.reflect.KProperty
  * Date：2025/12/1
  * Describe:
  */
-class CozyBoolImpl(val keyStr: String = "") {
+class CozyBoolImpl(val keyStr: String = "",val def: Boolean=false) {
     private val editor get() = CharmCenter.mSpHelper.edit()
     private var nameStr = keyStr
     private fun fetchKeyName(string: String): String {
@@ -19,7 +19,7 @@ class CozyBoolImpl(val keyStr: String = "") {
     }
 
     operator fun getValue(me: Any?, p: KProperty<*>): Boolean {
-        return CharmCenter.mSpHelper.getBoolean(fetchKeyName(p.name), false)
+        return CharmCenter.mSpHelper.getBoolean(fetchKeyName(p.name), def)
     }
 
     operator fun setValue(me: Any?, p: KProperty<*>, value: Boolean) {

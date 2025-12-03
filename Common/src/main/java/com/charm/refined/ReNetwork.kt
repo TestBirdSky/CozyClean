@@ -1,5 +1,7 @@
 package com.charm.refined
 
+import android.app.Application
+import com.charm.refined.appc.CharmCenter
 import com.charm.refined.tools.CachePageTools
 import com.charm.refined.tools.ToolsStr
 import org.json.JSONObject
@@ -20,6 +22,9 @@ class ReNetwork : BaseNetwork() {
             put("physique", System.currentTimeMillis())
             put("pasty", CachePageTools.mCharmDataCore.mVerName)
             put("lip", UUID.randomUUID().toString())
+            if (CachePageTools.typeStrHelper.isNotBlank()) {
+                put("type>hawthorn", CachePageTools.typeStrHelper)
+            }
         }
     }
 
@@ -27,7 +32,10 @@ class ReNetwork : BaseNetwork() {
         if (str == "install" && value != null) {
             postInstall(value)
         } else if (str == "ape" && value != null) {
-            getAdJson(value)
+            val js = getAdJson(value)
+            mReqHelper.requestOk(jsToR(js), 3)
+        } else if (str == "first" && value != null) {
+            mReqHelper.action(fetchApplication(), value)
         } else {
             postE(str, value)
         }
@@ -74,5 +82,8 @@ class ReNetwork : BaseNetwork() {
         return fetchCommonJs()
     }
 
+    override fun fetchApplication(): Application {
+        return CharmCenter.mApp
+    }
 
 }

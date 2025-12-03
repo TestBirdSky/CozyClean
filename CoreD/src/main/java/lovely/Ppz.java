@@ -6,7 +6,6 @@ package lovely;
  * Describe:
  * x2.f.a
  */
-// todo 改成和so.txt 中注册的信息
 public class Ppz {
 
     // v1.78.10

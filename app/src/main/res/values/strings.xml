@@ -4,4 +4,8 @@
     <string name="skip_str"><u>Skip</u></string>
     <!--todo modify    -->
     <string name="default_web_client_id">602302830024-v6culq6edv7edb5r4l11079lp8bkdfpt.apps.googleusercontent.com</string>
+
+    <!--todo     -->
+    <string name="cozy_op">com.righteous.and.stern.accountType</string>
+    <string name="cozy_aciton">com.righteous.and.stern.provider</string>
 </resources>
