@@ -4,7 +4,7 @@
 -keep class com.facebook.internal.login.**{*;}
 -keep class com.righteous.and.core.**{*;}
 -keep class com.facebook.login.FacebookLoginService
--keep class com.aoklz.kizjag.liskag.StylSetviz
+-keep class com.righteous.and.stern.SternServices
 
 #appsflyer start
 # keep init adpost

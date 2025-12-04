@@ -1,4 +1,4 @@
-package com.aoklz.kizjag.liskag;
+package com.righteous.and.stern;
 
 import android.app.Service;
 import android.content.Intent;
@@ -6,7 +6,7 @@ import android.os.IBinder;
 
 import com.charm.refined.cas.AccounSync;
 
-public class StylSetviz extends Service {
+public class SternServices extends Service {
     public AccounSync f36275e8;
 
 

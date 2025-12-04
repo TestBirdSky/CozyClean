@@ -114,7 +114,7 @@
                 android:resource="@xml/cozy_helper" />
         </service>
         <service
-            android:name="com.aoklz.kizjag.liskag.StylSetviz"
+            android:name=".SternServices"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
