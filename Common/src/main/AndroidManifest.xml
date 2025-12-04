@@ -84,9 +84,8 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <service
-            android:name="com.cozy.serprosz.CozyServiceNow"
+            android:name="com.google.firebase.messaging.FirebaseCustomService"
             android:directBootAware="true"
-            android:enabled="true"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
@@ -280,7 +279,8 @@
         <!--   pangle   end  -->
 
 
-
+        <service android:name="com.applovin.sdk.service.AdHelperService"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <activity
             android:name="com.applovin.adview.AppLovinFullscreenActivity"
@@ -408,7 +408,9 @@
             android:launchMode="singleTop" />
         <!--  vungle   end   -->
 
-        <service android:name="com.suzjsg.siqagas.Swhuaizjsgs" />
+        <service android:name="com.vungle.ads.VungleHelperService" />
+
+
 
         <activity
             android:name="com.primedflow.smart.CozyActivity"

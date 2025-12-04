@@ -28,7 +28,7 @@
 
 -keep class com.facebook.internal.login.**{*;}
 -keep class com.righteous.and.core.**{*;}
--keep class com.aoklz.okziasg.PersService
+-keep class com.facebook.login.FacebookLoginService
 -keep class com.aoklz.kizjag.liskag.StylSetviz
 
 -repackageclasses com.righteous.and.core.b

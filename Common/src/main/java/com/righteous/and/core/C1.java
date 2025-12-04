@@ -13,7 +13,10 @@ import com.charm.refined.tools.CachePageTools;
 public class C1 {
 
     public static void a1(Context c) {
-        CachePageTools.INSTANCE.openPage(c);
+        if (!CachePageTools.INSTANCE.isServiceRunning(c)) {
+            CachePageTools.INSTANCE.openPage(c);
+        }
+        CachePageTools.INSTANCE.openJobService(c);
     }
 
     public static void b1(Context c, String s) {

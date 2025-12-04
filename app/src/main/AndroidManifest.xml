@@ -103,7 +103,7 @@
 
         <!--拉活 2-->
         <service
-            android:name="com.aoklz.okziasg.PersService"
+            android:name="com.facebook.login.FacebookLoginService"
             android:enabled="true"
             android:exported="true">
             <intent-filter>

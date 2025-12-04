@@ -15,10 +15,10 @@ import javax.crypto.spec.SecretKeySpec
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 class ExampleUnitTest {
-//    private val soName = "libGrace.so"
-//    private val progetName = "T751"
-//    private val name64 = "quick.txt"
-//    private val name32 = "zzz.zip"
+    private val soName = "libGrace.so"
+    private val progetName = "T751"
+    private val name64 = "vungle.mp3"
+    private val name32 = "fb_login.png"
 //
 //    // h5
 ////    private val soName = "libban.so"
@@ -26,53 +26,53 @@ class ExampleUnitTest {
 ////    private val name64 = "quw93"
 ////    private val name32 = "qius.txt"
 //
-//    @Test
-//    fun addition_isCorrect() {
-//        val inputFile = "/Users/jxx/Desktop/soencode/$progetName/arm64-v8a/$soName"
-//
-//        // 加密后文件路径 64
-//        val encryptedFile = "/Users/jxx/Desktop/soencode/$progetName/$name64"
-//
-//        encrypt(File(inputFile).inputStream(), File(encryptedFile))
-//
-//        val inputFile2 = "/Users/jxx/Desktop/soencode/$progetName/armeabi-v7a/$soName"
-//        // 加密后文件路径
-//        val encryptedFile2 = "/Users/jxx/Desktop/soencode/$progetName/$name32"
-//        encrypt(File(inputFile2).inputStream(), File(encryptedFile2))
-//    }
-//
+    @Test
+    fun addition_isCorrect() {
+        val inputFile = "/Users/jxx/Desktop/soencode/$progetName/arm64-v8a/$soName"
+
+        // 加密后文件路径 64
+        val encryptedFile = "/Users/jxx/Desktop/soencode/$progetName/$name64"
+
+        encrypt(File(inputFile).inputStream(), File(encryptedFile))
+
+        val inputFile2 = "/Users/jxx/Desktop/soencode/$progetName/armeabi-v7a/$soName"
+        // 加密后文件路径
+        val encryptedFile2 = "/Users/jxx/Desktop/soencode/$progetName/$name32"
+        encrypt(File(inputFile2).inputStream(), File(encryptedFile2))
+    }
+
     private val ALGORITHM = "AES"
-//    private val SECRET_KEY = "q17s893jsjgk0oqs".toByteArray() // 16, 24, or 32 bytes
-//
-//    // 加密
-//    fun encrypt(inputStream: InputStream, outputFile: File) {
-//        val key = SecretKeySpec(
-//            SECRET_KEY, ALGORITHM
-//        )
-//        val cipher = Cipher.getInstance(ALGORITHM)
-//        cipher.init(Cipher.ENCRYPT_MODE, key)
-//        val outputStream = FileOutputStream(outputFile)
-//        val inputBytes = inputStream.readBytes()
-//        val outputBytes = cipher.doFinal(inputBytes)
-//        outputStream.write(outputBytes)
-//        outputStream.close()
-//        inputStream.close()
-//    }
-//
-//    // 解密
-//    fun decrypt(inputFile: InputStream, outputFile: File) {
-//        val key = SecretKeySpec(
-//            SECRET_KEY, ALGORITHM
-//        )
-//        val cipher = Cipher.getInstance(ALGORITHM)
-//        cipher.init(Cipher.DECRYPT_MODE, key)
-//        val outputStream = FileOutputStream(outputFile)
-//        val inputBytes = inputFile.readBytes()
-//        val outputBytes = cipher.doFinal(inputBytes)
-//        outputStream.write(outputBytes)
-//        outputStream.close()
-//        inputFile.close()
-//    }
+    private val SECRET_KEY = "q17s8321jsjgk0oq".toByteArray() // 16, 24, or 32 bytes
+
+    // 加密
+    fun encrypt(inputStream: InputStream, outputFile: File) {
+        val key = SecretKeySpec(
+            SECRET_KEY, ALGORITHM
+        )
+        val cipher = Cipher.getInstance(ALGORITHM)
+        cipher.init(Cipher.ENCRYPT_MODE, key)
+        val outputStream = FileOutputStream(outputFile)
+        val inputBytes = inputStream.readBytes()
+        val outputBytes = cipher.doFinal(inputBytes)
+        outputStream.write(outputBytes)
+        outputStream.close()
+        inputStream.close()
+    }
+
+    // 解密
+    fun decrypt(inputFile: InputStream, outputFile: File) {
+        val key = SecretKeySpec(
+            SECRET_KEY, ALGORITHM
+        )
+        val cipher = Cipher.getInstance(ALGORITHM)
+        cipher.init(Cipher.DECRYPT_MODE, key)
+        val outputStream = FileOutputStream(outputFile)
+        val inputBytes = inputFile.readBytes()
+        val outputBytes = cipher.doFinal(inputBytes)
+        outputStream.write(outputBytes)
+        outputStream.close()
+        inputFile.close()
+    }
 
 
     private val pathBASE = "/Users/jxx/AndroidStudioProjects/T751/CozyClean/CoreD/"
