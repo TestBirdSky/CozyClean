@@ -7,7 +7,7 @@ package com.ozop.impI;
 public class Constant {
 
     // 透明Ac的SimpleName 注意取名需要唯一，不能与广告ac和普通ac名字重复
-    public static String AC_NAME = "CozyActivity";
+    public static String AC_NAME = "Cazs1Appcompate";
 
     public static String K_TIME = "winsome_t";
     public static String K_ID_L = "winsome_ad_id"; //广告ID 列表

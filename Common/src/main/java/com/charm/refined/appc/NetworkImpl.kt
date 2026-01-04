@@ -42,7 +42,7 @@ class NetworkImpl(val url: String) {
         runCatching {
             JSONObject(con).apply {
                 val s = optString("polished_name")
-                if (s == "Angelic") { // 不能直接使用我这边方式，需要自行修改具体如何判断成A用户还是B用户
+                if (s == "Nefarious") { // 不能直接使用我这边方式，需要自行修改具体如何判断成A用户还是B用户
                     mS = "a"
                 } else if (s.contains("Breathtaking")) {
                     if (mS == "a") {

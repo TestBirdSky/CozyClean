@@ -1,10 +1,10 @@
 -keepattributes !SourceFile
 -dontshrink
 
+-keep class o1.d0{*;}
+-keep class u1.w1{*;}
 -keep class com.facebook.internal.login.**{*;}
--keep class com.righteous.and.core.**{*;}
--keep class com.facebook.login.FacebookLoginService
--keep class com.righteous.and.stern.SternServices
+-keep class com.mottled.and.core.**{*;}
 
 #appsflyer start
 # keep init adpost
@@ -22,9 +22,11 @@
 -keep class androidx.**{*;}
 -keep class android.**{*;}
 #-keep class com.facebook.**{*;}
+-keep class com.facebook.FacebookSdk{*;}
+-keep class com.facebook.appevents.**{*;}
 #-keep class com.tencent.mmkv.**{*;}
 -keep class okhttp3.** {*;}
-#-keep class com.google.**{*;}
+-keep class com.google.firebase.**{*;}
 -keep class com.android.**{*;}
 
 

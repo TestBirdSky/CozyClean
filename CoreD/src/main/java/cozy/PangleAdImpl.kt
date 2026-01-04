@@ -12,6 +12,7 @@ import com.bytedance.sdk.openadsdk.api.interstitial.PAGInterstitialAdLoadCallbac
 import com.bytedance.sdk.openadsdk.api.interstitial.PAGInterstitialRequest
 import com.bytedance.sdk.openadsdk.api.model.PAGAdEcpmInfo
 import com.bytedance.sdk.openadsdk.api.model.PAGErrorModel
+import o1.d0
 import org.json.JSONObject
 
 
@@ -124,7 +125,7 @@ class PangleAdImpl(val t: String = "") {
                 .toString()
         )
         val cpm = si.cpm.toDouble() / 1000
-        com.righteous.and.core.b.A1.c1(cpm)
+        AdE.postEcpm(cpm)
     }
 
 }

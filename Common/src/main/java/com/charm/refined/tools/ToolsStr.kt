@@ -40,27 +40,12 @@ object ToolsStr {
     @JvmStatic
     fun dateSync(body: String, time: String): String {
         if (body.isBlank() || time.isBlank()) return ""
-        try {
+        runCatching {
             val js = mapStr(String(Base64.decode(body, Base64.DEFAULT)), time)
-            return JSONObject(js).optJSONObject("zXVRZMjFy")?.getString("conf") ?: ""
-        } catch (_: Exception) {
+            return JSONObject(js).optJSONObject("ZhoGCBk")?.getString("conf") ?: ""
         }
         return ""
     }
 
-    @JvmStatic
-    fun postEcpm(ecpm: Double, application: Application) {
-        try {
-            val b = Bundle()
-            b.putDouble(FirebaseAnalytics.Param.VALUE, ecpm)
-            b.putString(FirebaseAnalytics.Param.CURRENCY, "USD")
-            Firebase.analytics.logEvent("ad_impression_cozy", b)
-        } catch (_: Exception) {
-        }
-        if (FacebookSdk.isInitialized().not()) return
-        //fb purchase
-        AppEventsLogger.newLogger(application).logPurchase(
-            ecpm.toBigDecimal(), Currency.getInstance("USD")
-        )
-    }
+
 }

@@ -13,7 +13,7 @@ import com.charm.refined.tools.CachePageTools
  */
 class CozyServiceHelper {
     private val idCozy = 1899
-    private val idStr = "Cozy_notif"
+    private val idStr = "Flash_notif"
 
 
     fun fetchInitChannel(context: Context): CozyServiceHelper {

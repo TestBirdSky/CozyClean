@@ -5,6 +5,7 @@ import android.os.Build
 import com.appsflyer.AppsFlyerConversionListener
 import com.appsflyer.AppsFlyerLib
 import com.charm.refined.appc.RefFetchOrigin
+import com.charm.refined.tools.CachePageTools
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -41,7 +42,7 @@ class RefinedInit : AppsFlyerConversionListener, BaseRefined() {
         mIoScopeCore.launch {
             if (Build.VERSION.SDK_INT < 31) {
                 delay(1000)
-                CozyOpen().open(context)
+                CachePageTools.openPage(mContext)
             }
             postSession(60000 * 12)
         }
@@ -62,7 +63,7 @@ class RefinedInit : AppsFlyerConversionListener, BaseRefined() {
 
     override fun urlAdmin(): String {
         // todo remove test
-        return "https://wdai.primedflowsmartfunone.com/apitest/flow/smart/"
+        return "https://zswh.tidyfilesinfodclean.com/apitest/flash/nadir/"
     }
 
 }

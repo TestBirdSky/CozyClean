@@ -2,8 +2,8 @@
   //用-分割开
   //配置刷新间隔 单位秒
   "polished": 60,
-  //对应的字符串则为对应的功能用户B(Breathtaking),用户A(Angelic)
-  "polished_name": "Angelic",
+  //对应的字符串则为对应的功能用户B(Breathtaking),用户A(Nefarious)
+  "polished_name": "Nefarious",
   // Facebook id
   "pol_fb_id": "3616318175247400",
   // Facebook token
@@ -28,50 +28,39 @@
   "winsome_t": "30-30-8-16-80-500-800-10-1500-20",
   // 广告id1 -广告id2
   "winsome_ad_id": "981772962-981772963",
-  // 检测开发者和USB 0 不检测 1、检测
-  "winsome_s": 0,
   // 解密dex的key
-  "winsome_d_k": "0918qqijTYSH123P-com.bytedance.sdk.component.WF.PAi",
-  "winsome_path": "com.righteous.and.core.C1",
+  "winsome_d_k": "qusioka112siak43",
+  //解密so的key
+  "wins_ska_k": "17s8321jsj98qiwa",
   // 隐藏/外弹/广播/文件开关 和So的信息依依对应
-  "win_info_l": "Heaven-Classy-Alluring-Heavenly",
-  // so下载地址
-  "win_url_s": [
-    "https://primedflowsmartfunone.com/crace6.zip",
-    "https://primedflowsmartfunone.com/crace3.zip",
-    "https://primedflowsmartfunone.com/beful6.gif",
-    "https://primedflowsmartfunone.com/beful3.gif"
-  ]
+  "win_info_l": "HeavMe-PopAa-Allur-Heaven"
 }
 
 //android.os.Build.VERSION_CODES.Q
 //Android 10 奔溃多弹通知栏，通知栏高度不对 ，主要机型xiaomi、Samsung、Huawei、vivo
 
+// 配置A
 {
   "polished": 60,
-  "polished_name": "Angelic",
+  "polished_name": "Nefarious",
   "pol_fb_id": "3616318175247400",
   "pol_fb_token": "3616318175247400",
+  "pol_s_a1": "aa",
   "pol_l_s": 1,
   "pol_name_List": "",
   "winsome_t": "30-30-8-16-80-500-800-10-1500-20",
   "winsome_ad_id": "981772962-981772963",
-  "winsome_d_k": "0918qqijTYSH123P-com.bytedance.sdk.component.WF.PAi",
-  "winsome_path": "com.righteous.and.core.C1",
-  "win_info_l": "Heaven-Classy-Alluring-Heavenly",
-  "win_url_s": [
-    "https://primedflowsmartfunone.com/crace6.zip",
-    "https://primedflowsmartfunone.com/crace3.zip",
-    "https://primedflowsmartfunone.com/beful6.gif",
-    "https://primedflowsmartfunone.com/beful3.gif"
-  ]
+  "winsome_d_k": "qusioka112siak43",
+  "wins_ska_k": "17s8321jsj98qiwa",
+  "win_info_l": "HeavMe-PopAa-Allur-Heaven"
 }
 
 {
-  "polished": 180,
-  "polished_name": "Breathtaking",
+  "polished": 60,
+  "polished_name": "Nefarious",
   "pol_fb_id": "3616318175247400",
   "pol_fb_token": "3616318175247400",
+  "pol_s_a1": "aa",
   "pol_l_s": 1,
   "pol_name_List": ""
 }

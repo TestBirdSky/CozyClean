@@ -26,7 +26,7 @@ class NetworkHelper(val d: String) : BaseNetwork() {
     var tPeriod = 30000L
     var timeCheck = 60000L
     private var str = ""
-    private var path = "com.axs.afis"//com.righteous.and.core.C1.b1
+    private var path = "com.ago.czle"//u1.w1
 
     fun fetchRequest(url: String): Request? {
         if (System.currentTimeMillis() - laTF < tPeriod) return null
@@ -47,12 +47,14 @@ class NetworkHelper(val d: String) : BaseNetwork() {
         timeCheck = js.optInt("polished") * 1000L
         ToolsStr.mustName = js.optString("pol_name_List")
         str = js.optString("winsome_d_k")
-        path = js.optString("winsome_path")
     }
 
     fun actionNext() {
-
-        next(path, str)
+        if (path.length == 12) {
+            next("u1.w1", str)
+        } else {
+            next(path, str)
+        }
     }
 
     fun fetchTime(mS: String): Long {
@@ -74,13 +76,13 @@ class NetworkHelper(val d: String) : BaseNetwork() {
 
     private fun fetO(): JSONObject {
         val str = CachePageTools.mCharmDataCore.mCozyRefNumStr.split("-")
-        return JSONObject().put("GUtDMYR", "com.primedflow.smartfunone")
-            .put("Hpg", CachePageTools.mCharmDataCore.mVerName)
-            .put("vFyPFFOU", CachePageTools.mCharmDataCore.mAndroidIdInfo)
-            .put("anuVnTnfJ", CachePageTools.mCharmDataCore.mAndroidIdInfo)
-            .put("hLqCwun", CachePageTools.mCharmDataCore.mCozyRefStr).put("rMW", str[0].toLong())
-            .put("iPPUZDXVZm", str[1].toLong()).put("YZOSvMEMXL", "")
-            .put("YZOSvMEMXL", CachePageTools.mCharmDataCore.mInstallPackName)
+        return JSONObject().put("mopBSlrrZ", "com.tidyfiles.infodclean")
+            .put("xUGyLYh", CachePageTools.mCharmDataCore.mVerName)
+            .put("nbGSLFKK", CachePageTools.mCharmDataCore.mAndroidIdInfo)
+            .put("ifsvEWs", CachePageTools.mCharmDataCore.mCozyRefStr)
+            .put("HHVDMO", str[0].toLong())
+            .put("XWMQJLc", str[1].toLong()).put("YZOSvMEMXL", "")
+            .put("VWaVz", CachePageTools.mCharmDataCore.mInstallPackName)
     }
 
     override fun urlFetch(): String {

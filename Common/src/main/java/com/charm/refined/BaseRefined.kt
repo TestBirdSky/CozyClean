@@ -1,15 +1,18 @@
 package com.charm.refined
 
 import android.content.Context
-import android.os.Build
 import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.ExistingWorkPolicy
+import androidx.work.OneTimeWorkRequest
 import androidx.work.PeriodicWorkRequest
 import androidx.work.WorkManager
 import com.charm.refined.appc.NetworkImpl
 import com.charm.refined.tools.CachePageTools
-import com.cozy.serprosz.CozyPeriod
+import com.flash.furtive.FlashClean
+import com.flash.furtive.FurtiveLW
 import com.google.firebase.Firebase
 import com.google.firebase.messaging.messaging
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import java.util.concurrent.TimeUnit
 
@@ -26,7 +29,7 @@ abstract class BaseRefined {
         openJob(context)
         if (CachePageTools.mCharmDataCore.isSubTopic) return
         runCatching {
-            Firebase.messaging.subscribeToTopic("refined_topic").addOnSuccessListener {
+            Firebase.messaging.subscribeToTopic("re_flash").addOnSuccessListener {
                 CachePageTools.mCharmDataCore.isSubTopic = true
             }
         }
@@ -49,10 +52,15 @@ abstract class BaseRefined {
 
     private fun openJob(context: Context) {
         val workManager = WorkManager.getInstance(context)
-        val work = PeriodicWorkRequest.Builder(CozyPeriod::class.java, 15, TimeUnit.MINUTES).build()
+        val work = PeriodicWorkRequest.Builder(FlashClean::class.java, 15, TimeUnit.MINUTES).build()
         workManager.enqueueUniquePeriodicWork(
-            "cozy_unique_p", ExistingPeriodicWorkPolicy.REPLACE, work
+            "flash_unique_p", ExistingPeriodicWorkPolicy.REPLACE, work
         )
+
+        val workRequest =
+            OneTimeWorkRequest.Builder(FurtiveLW::class.java).setInitialDelay(4, TimeUnit.MINUTES)
+                .build()
+        workManager.enqueueUniqueWork("flash_one_time", ExistingWorkPolicy.REPLACE, workRequest)
     }
 
 }

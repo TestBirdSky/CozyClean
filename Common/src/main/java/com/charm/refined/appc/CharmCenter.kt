@@ -3,7 +3,6 @@ package com.charm.refined.appc
 import android.app.Activity
 import android.app.Application
 import android.os.Bundle
-import com.charm.refined.cas.HandlerHelper
 import com.charm.refined.tools.CachePageTools
 import com.charm.refined.tools.ToolsStr
 
@@ -21,7 +20,6 @@ class CharmCenter : Application.ActivityLifecycleCallbacks {
         mApp = app
         CachePageTools.mCharmDataCore.initCharm(app)
         app.registerActivityLifecycleCallbacks(this)
-        HandlerHelper.initMe(app)
     }
 
     override fun onActivityCreated(

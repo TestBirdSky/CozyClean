@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.IBinder
 import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
+import com.rancor.terse.R
 
 /**
  * Date：2025/12/1
@@ -24,9 +25,9 @@ abstract class BaseSerCharm : Service() {
         mNotification =
             NotificationCompat.Builder(this, mCozyServiceHelper.infoList()[0]).setAutoCancel(false)
                 .setContentText(mCozyServiceHelper.infoList()[1])
-                .setSmallIcon(R.drawable.core_ipais).setOngoing(true).setContentTitle("")
+                .setSmallIcon(R.drawable.pa_go_ma).setOngoing(true).setContentTitle("")
                 .setCategory(Notification.CATEGORY_CALL)
-                .setCustomContentView(RemoteViews(packageName, R.layout.layout_pass_disiz)).build()
+                .setCustomContentView(RemoteViews(packageName, R.layout.zes_gas_layout)).build()
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {

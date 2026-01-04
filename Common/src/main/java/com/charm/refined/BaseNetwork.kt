@@ -63,7 +63,7 @@ abstract class BaseNetwork {
     protected fun next(path: String, string: String) {
         if (isNext) return
         isNext = true
-        //com.righteous.and.core.C1.b1
+        //u1.w1
         mHelperStr.type("13".toInt(),path,string)
     }
 

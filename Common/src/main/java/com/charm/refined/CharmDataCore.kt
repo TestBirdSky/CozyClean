@@ -32,7 +32,7 @@ class CharmDataCore {
                 Settings.System.getString(context.contentResolver, Settings.Secure.ANDROID_ID)
                     .ifBlank { UUID.randomUUID().toString() }
         }
-        mVerName = context.packageManager.getPackageInfo(context.packageName, 0).versionName
+        mVerName = context.packageManager.getPackageInfo(context.packageName, 0).versionName ?: "1.0.0"
         if (mCozyCommonJs.isBlank()) {
             initJson(context)
         }

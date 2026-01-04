@@ -5,5 +5,19 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.CleanIt" parent="Base.Theme.CleanIt" />
+    <style name="Theme.CleanFlash" parent="Base.Theme.CleanIt" />
+
+    <style name="theme_gha" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <!-- 设置导航栏为半透明 -->
+        <item name="android:windowTranslucentNavigation">true</item>
+    </style>
 </resources>

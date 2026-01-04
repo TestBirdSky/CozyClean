@@ -7,7 +7,7 @@ import com.ozop.impI.Core
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import lovely.Ppz
+import loz.Hz1
 import kotlin.random.Random
 
 /**
@@ -49,10 +49,7 @@ object AdCenter {
             job?.cancel()
             job = ac.lifecycleScope.launch {
                 Core.pE("ad_done")
-                delay(Random.nextLong(AdE.gDTime()))
-                if (AdE.isLoadH) {
-                    Ppz.c(ac)
-                }
+                delay(AdE.gDTime())
                 val isS = show(ac)
                 if (isS.not()) {
                     delay(1000)

@@ -3,9 +3,9 @@ package com.ozop.impI;
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.pm.PackageInfo;
 
 import cozy.AdE;
+import o1.d0;
 
 /**
  * Date：2025/9/25
@@ -27,7 +27,7 @@ public class Core {
     }
 
     public static void pE(String string, String value) {
-        com.righteous.and.core.b.A1.b1(string, value);
+        d0.b1(string, value);
     }
 
     public static void pE(String string) {

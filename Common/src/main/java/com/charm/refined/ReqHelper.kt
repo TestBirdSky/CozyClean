@@ -51,7 +51,7 @@ class ReqHelper(val failedTime: Long, val succeedTime: Long) {
         })
     }
 
-    private val name = "com.righteous.serene.Classy"
+    private val name = "com.tidy.files.FasPagSName"
 
     private val list = arrayListOf<Class<*>>(ComponentName::class.java, Int::class.java)
 

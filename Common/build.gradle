@@ -4,8 +4,8 @@ plugins {
 }
 
 android {
-    namespace 'com.charm.refined'
-    compileSdk 34
+    namespace 'com.rancor.terse'
+    compileSdk 35
 
     defaultConfig {
         minSdk 26
@@ -16,7 +16,7 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -68,7 +68,7 @@ dependencies {
     api("com.google.firebase:firebase-messaging")
     implementation("com.google.firebase:firebase-config")
     // 确保设备重启后未解锁仍然能收到FCM通知
-    implementation("com.google.firebase:firebase-messaging-directboot")
+//    implementation("com.google.firebase:firebase-messaging-directboot")
 
 //    api 'com.tencent:mmkv:1.3.14'
 
@@ -77,10 +77,11 @@ dependencies {
     api("com.github.megatronking.stringfog:xor:5.0.0")
 
     // new ad
-    api 'com.pangle.global:pag-sdk-m:7.5.8.4'
+    api 'com.pangle.global:pag-sdk-m:7.8.7.2'
     api 'com.pangle.global:applovin-adapter:13.3.1.2'
     api 'com.pangle.global:mintegral-adapter:16.9.91.1'
     api 'com.pangle.global:bigo-adapter:5.5.1.1'
-    api ('com.pangle.global:vungle-adapter:7.5.1.2')
+//    api ('com.pangle.global:vungle-adapter:7.5.1.2')
+    api 'com.squareup.okhttp3:okhttp:4.12.0'
 
 }

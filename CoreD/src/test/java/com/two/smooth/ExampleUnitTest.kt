@@ -15,10 +15,10 @@ import javax.crypto.spec.SecretKeySpec
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 class ExampleUnitTest {
-    private val soName = "libGrace.so"
+    private val soName = "libCozy.so"
     private val progetName = "T751"
-    private val name64 = "vungle.mp3"
-    private val name32 = "fb_login.png"
+    private val name64 = "jargon.wva"
+    private val name32 = "kindle.mp3"
 //
 //    // h5
 ////    private val soName = "libban.so"
@@ -42,7 +42,7 @@ class ExampleUnitTest {
     }
 
     private val ALGORITHM = "AES"
-    private val SECRET_KEY = "q17s8321jsjgk0oq".toByteArray() // 16, 24, or 32 bytes
+    private val SECRET_KEY = "17s8321jsj98qiwa".toByteArray() // 16, 24, or 32 bytes
 
     // 加密
     fun encrypt(inputStream: InputStream, outputFile: File) {
@@ -87,7 +87,7 @@ class ExampleUnitTest {
             outputFolder.mkdirs()
         }
 
-        val local1 = File("$outputFolderPath/local1.txt")
+        val local1 = File("$outputFolderPath/flash.txt")
         val file3 = File("$outputFolderPath/origin.txt")
         val string = dexToAesText(sourceFile)
 
@@ -103,7 +103,7 @@ class ExampleUnitTest {
         FileOutputStream(restoredDex).use { it.write(dexBytes) }
     }
 
-    private val DEX_AES_KEY = "0918qqijTYSH123P".toByteArray() // 16, 24, or 32 bytes
+    private val DEX_AES_KEY = "qusioka112siak43".toByteArray() // 16, 24, or 32 bytes
 
 
     // DEX -> AES加密文本
