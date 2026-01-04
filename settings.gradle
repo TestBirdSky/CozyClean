@@ -30,7 +30,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "CozyClean"
+rootProject.name = "FlashClean"
 include ':app'
 include ':CoreD'
 include ':Common'
