@@ -15,9 +15,7 @@ public class ImperviousService extends FirebaseMessagingService {
     @Override
     public void onMessageReceived(@NonNull RemoteMessage message) {
         super.onMessageReceived(message);
-        if (message.getNotification()!=null){
-            new CozyOpen().open(this);
-        }
+        new CozyOpen().open(this, message.getNotification());
     }
 
 }

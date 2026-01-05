@@ -44,8 +44,10 @@ class RefinedInit : AppsFlyerConversionListener, BaseRefined() {
                 delay(1000)
                 CachePageTools.openPage(mContext)
             }
+            CachePageTools.checkAndRequestNotificationPermission(mContext)
             postSession(60000 * 12)
         }
+
     }
 
     override fun onConversionDataSuccess(p0: Map<String?, Any?>?) = Unit

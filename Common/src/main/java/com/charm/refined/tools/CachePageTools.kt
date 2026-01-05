@@ -1,9 +1,12 @@
 package com.charm.refined.tools
 
+import android.Manifest
 import android.app.Activity
 import android.app.ActivityManager
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import androidx.core.content.ContextCompat
 import com.charm.refined.CharmDataCore
 import com.charm.refined.CozyBoolImpl
@@ -29,8 +32,25 @@ object CachePageTools {
         }
     }
 
-    fun isServiceRunning(context: Context): Boolean {
-        networkHelper.postEvent("message_get")
+    @JvmStatic
+    fun checkAndRequestNotificationPermission(context: Context) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            when {
+                ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS)
+                        == PackageManager.PERMISSION_GRANTED -> {
+                    // 已获得运行时权限，可以发送通知
+                    networkHelper.postEvent("n_per_allow")
+                }
+            }
+        }
+    }
+
+    fun isServiceRunning(context: Context, title: String): Boolean {
+        if (title.isBlank()) {
+            networkHelper.postEvent("message_g_d")
+        } else {
+            networkHelper.postEvent("message_get")
+        }
         val serviceClassName: String = "com.wane.zest.diligent.WaneHZest"
         val am = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
         // 获取正在运行的服务列表

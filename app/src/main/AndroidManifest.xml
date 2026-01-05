@@ -9,6 +9,63 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <queries>
+        <package android:name="com.zhiliaoapp.musically" />
+        <package android:name="com.ss.android.ugc.trill" />
+        <package android:name="com.amazon.mShop.android.shopping" />
+        <package android:name="io.supercent.linkedcubic" />
+        <package android:name="com.gtsy.annoying.punch.game" />
+        <package android:name="com.playstrom.dop4" />
+        <package android:name="io.voodoo.holeio" />
+        <package android:name="com.sh.fidget.toys.mini.relaxing.antistress.games" />
+        <package android:name="com.playstrom.dop2" />
+        <package android:name="com.tvf.anti.stress.relaxing.mini.games" />
+        <package android:name="com.vincentb.MobControl" />
+        <package android:name="com.oakever.tiletrip" />
+        <package android:name="com.block.juggle" />
+        <package android:name="com.wood.block.sudoku.puzzle.bm" />
+        <package android:name="com.vitastudio.mahjong" />
+        <package android:name="com.save.princess.girl.dragon.out.and" />
+        <package android:name="com.awesome.puzzlehexasort" />
+        <package android:name="com.easybrain.crossword.puzzles" />
+        <package android:name="com.bunbunstudio.magicblocktiles" />
+        <package android:name="com.unept.leveldevil" />
+        <package android:name="com.easygames.race" />
+        <package android:name="com.amelosinteractive.snake" />
+        <package android:name="com.bm.steal.brainrot.go.tung.sahur.tralalero.bombardino" />
+        <package android:name="com.youmusic.magictiles" />
+        <package android:name="com.Garawell.BridgeRace" />
+        <package android:name="com.Aria.TidyMaster.mi" />
+        <package android:name="com.gamovation.tileclub" />
+        <package android:name="grill.sort.food.games.match.puzzle" />
+        <package android:name="funvent.tilepark" />
+        <package android:name="com.mergegames.gossipharbor" />
+        <package android:name="com.fc.goods.sort.matching.puzzle.triplemaster" />
+        <package android:name="com.gof.global" />
+        <package android:name="com.run.tower.defense" />
+        <package android:name="com.greenmushroom.boomblitz.gp" />
+        <package android:name="com.fun.lastwar.gp" />
+        <package android:name="com.readygo.dark.gp" />
+        <package android:name="com.readygo.barrel.gp" />
+        <package android:name="com.hhgame.mlbbvn" />
+        <package android:name="com.mobile.legends" />
+        <package android:name="com.justgame.jails" />
+        <package android:name="com.newleaf.app.android.victor" />
+        <package android:name="com.storymatrix.drama" />
+        <package android:name="com.newreading.goodreels" />
+        <package android:name="com.netshort.abroad" />
+        <package android:name="com.dramawave.app" />
+        <package android:name="tv.flareflow.drama" />
+        <package android:name="com.garanti.cepsubesi" />
+        <package android:name="com.adakami.dana.kredit.pinjaman" />
+        <package android:name="com.id.kredi360" />
+        <package android:name="com.binance.dev" />
+    </queries>
+
     <application
         android:name=".FlashApp"
         android:allowBackup="true"

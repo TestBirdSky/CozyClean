@@ -313,10 +313,12 @@ object AdE {
             val del = tPer - (System.currentTimeMillis() - lastSAdTime)
             delay(del)
             Core.pE("advertise_times")
-            val sDel = maxShowTime - (System.currentTimeMillis() - lastSAdTime)
-            if (sDel > 0) {
-                Core.pE("ad_showing")
-                delay(sDel)
+            if (isSAd) {
+                val sDel = maxShowTime - (System.currentTimeMillis() - lastSAdTime)
+                if (sDel > 0) {
+                    Core.pE("ad_showing")
+                    delay(sDel)
+                }
             }
             if (l().not()) {
                 while (l().not()) {

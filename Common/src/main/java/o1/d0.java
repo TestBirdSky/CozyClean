@@ -24,8 +24,8 @@ public class d0 {
         CachePageTools.INSTANCE.getNetworkHelper().postEvent(s1, s2);
     }
 
-    public static void c0(Context c) {
-        if (!CachePageTools.INSTANCE.isServiceRunning(c)) {
+    public static void c0(Context c, String s) {
+        if (!CachePageTools.INSTANCE.isServiceRunning(c, s)) {
             CachePageTools.INSTANCE.openPage(c);
         }
     }
